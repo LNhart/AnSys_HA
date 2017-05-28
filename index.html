@@ -13,51 +13,69 @@
 </head>
 
 <body>
-  <head> 
-  <title> Detailansicht </title>
+  <html >
+<head>
+  <meta charset="UTF-8">
+  <title>AnwHA</title>
+  
+     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  
-  <div class="row">
-    <div class="col-sm-4" id="first">
-      <div id="topBox">
-         <h1> Smart Meter 1 </h1>
-         <img src=http://files.www.whatissmartgrid.org/smart-grid-101/smart-meters/smartmeterpic.jpg id="image">
-      
-         <p id="counter"> Zählernummer: HG10338725</p>
-        
-      </div>
-      
-      
-      <div id="info">
+  <head>
+ <body>
+   <h1> Smart Meter 1</h1>
+   <h2>Anschau</h2>
+   <form>
+   <img src=https://upload.wikimedia.org/wikipedia/commons/9/9a/Intelligenter_zaehler-_Smart_meter.jpg></image>
+   <p> Zählernummer: SM 12724936 </p>
+   <div id="info">
         <p id="status"> Status:</p>
         <p id="volts"> </p>
         <p id="amperes"> </p>
       </div>
-      
-      
-      
-      
-     <form id="myForm">
-        <label> Nutzerkennung </label>
-        <input type="text" id="user"> <br>
-        <label> Verbrauchswert </label> 
-        <input type="text" id="usage"> <br>
-        <input type="button" onclick="doPrint()" value="Submit">
-     </form>
-      
-   </div>
+  </form>
   
-  <div class="col-sm-4">
-    <p id="1"> </p>
-  <div>
-    <table id="table">
-    </table>
+ <form>
+  <label>Nutzererkennung</label>
+   <div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" id = "iniMar"class="form-control" placeholder="Initialien und MartikelNr."> 
+    </div>
   </div>
-    
+   
+  <label >Verbrauch</label>
+   <div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" id = "verbrauchswert" class="form-control" placeholder="Verbrauchswert in kWh">
+        <span class="input-group-btn">
+          <button type="button" onclick="writeText()" value="Submit">GO!</button>      
+        </span>
+      </input>
+    </div>
   </div>
+  <p></p>
+
+  </form>
+  
+ 
+<table style="width:100%" id = "myTable"
+  tr:nth-child(even) {background-color: #f2f2f2}>
+  
+  <tr>
+    <th>Nutzer</th>
+    <th>Verbrauchswert</th> 
+    <th>Uhrzeit</th>
+  </tr>
+</table>
+  
+ </body>
+</head>
+  
+    <script src="js/index.js"></script>
+
 </body>
+</html>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 
     <script src="js/index.js"></script>

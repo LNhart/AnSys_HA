@@ -1,41 +1,37 @@
+body{
+  background-color: #F2F2F2;
+}
 h1{
   text-align: center;
-  //margin: 35px;
+  color: #000035;
+  font-size: 35pt;
+  font-weight: bold;
 }
 
-table, td{
-  border: 1pt solid black;
-  padding: 1px;
-  
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid black;
 }
 
 img{
-  border-radius: 20px;
-  box-shadow: 5px 5px 2px grey;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  //margin: 25px;
+  width: 300px;
+  border-radius: 25px;
+}
+
+th{
+  text-align : center;
+  padding : 9px;
+  background-color : #b0b1b2;
+  border: 2px solid black;
+  
+}
+td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px;
   
 }
 
-body{
-  background-color: #e9e8ec;
-}
-
-#myForm{
-  //margin: 35px;
-}
-
-#first{
-  margin: 35px;
-}
-
-#info, #image{
-  display: inline;
-  float: left;
-  margin: 15px;
-}
-
-#counter{
-  clear: both;
-}
+tr:nth-child(even){
+  background-color: white}

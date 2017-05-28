@@ -1,22 +1,22 @@
-var maxAmp = 100;
+var max = 100;
 
-function doPrint(){
-  var x = document.getElementById("user").value;
-  var y = document.getElementById("usage").value;
-  document.getElementById("user").value = "";
-  document.getElementById("usage").value = "";
-  if(isValidUsername(x) == true && isValidUsage(y)== true){
-    $("#table").append("<tr> <td>" + x + "</td> <td>" + y + "</td> </tr>"); 
-  }
+function randomVolt(){
+  return (Math.random()*20+220).toFixed(1);
+}
+
+function randomAmpere(){
+  return ((Math.random()*max)+5).toFixed(1);
+  // for testing the warning :
+  //return 101;
 }
 
 function isValidUsername(string){
   
   if(!(string.length == 4)){
     alert("Die Initialen plus die letzten Ziffern der Immatrikulationsnummer.");
-    return false;
-    
+    return false;  
   }
+ 
   var initials = string.substring(0, 2);
   var imma = string.slice(2);
  
@@ -47,10 +47,9 @@ function isValidUsername(string){
  if(isLetters == false || isNumbers == false ){
    alert("Ungültige Nutzerkennung");
    return false;
- } 
-  return true; 
+ }
+ return true; 
 }
-
 
 function isValidUsage(usage){
   var arr = usage.split();
@@ -65,27 +64,36 @@ function isValidUsage(usage){
   return true;
 }
 
-function randomVolt(){
-  return Number((Math.random()*20 + 220).toFixed(1));
+function writeText(){
+  
+  var x = $('#iniMar').val();
+  var y = $("#verbrauchswert").val();
+  
+  if (isValidUsername(x) == true && isValidUsage(y) == true ){
+    var table = $("#myTable")[0];
+    var row = table.insertRow(1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    cell1.innerHTML = x.toUpperCase();
+    cell2.innerHTML = y + " kWh";
+    cell3.innerHTML = Date().substring(16,24) + " Uhr";
+  }
+  
+  $('#iniMar').val("");
+  $('#verbrauchswert').val("");
+    
 }
 
-
-
-
-
-function randomAmpere(){
-  return Number((Math.random()* (maxAmp+5)).toFixed(1));
-  // for edge case testing :
-  //return 101;
-}
+//document.getElementById("statusetc").innerHTML = " <p> Status: </p> <ul> <li>" +  randomVolt() 
+//  + " Volt</li> <li>" + randomAmpere() +"  Ampere</li> </ul>";
 
 var amp = randomAmpere();
 
-
-
 $("#volts").html(randomVolt() + " Volt");
-$("#amperes").html(amp + " Aampere");
 
-if (amp > maxAmp){
-  document.getElementById("third").innerHTML = "<img src=\"https://media.tenor.co/images/6f14b0f70cfd49b63b4715b4a7d1e097/tenor.gif\" >";
+$("#amperes").html(amp + " Ampere");
+
+if (amp > max){
+  window.alert("! ACHTUNG Stromstärke überschritten !");        
 }
